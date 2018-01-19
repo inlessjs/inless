@@ -1,0 +1,12 @@
+{
+  "name": "@inless/util-cycler",
+  "version": "0.0.0",
+  "description": "Inless cycler for stream-based modules",
+  "main": "dist/util-cycler.js",
+  "author": "Vlad Sydorenko <vladv.sydorenko@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "rxjs": "^5.5.6"
+  }
+}

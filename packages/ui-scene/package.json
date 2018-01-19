@@ -1,0 +1,9 @@
+{
+  "name": "@inless/ui-scene",
+  "version": "0.0.0",
+  "description": "UI components for inless scene",
+  "main": "dist/ui-scene.js",
+  "author": "Vlad Sydorenko <vladv.sydorenko@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
