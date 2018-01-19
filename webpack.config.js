@@ -9,10 +9,11 @@ const packages = {
     [PackageNames.UTIL_CYCLER]: {
         name: PackageNames.UTIL_CYCLER,
         dir: `./packages/${PackageNames.UTIL_CYCLER}`,
+        externals: [],
         modules: {
             html: {},
+            css: {},
         },
-        externals: [],
     },
     [PackageNames.UI_SCENE]: {
         name: PackageNames.UI_SCENE,
