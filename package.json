@@ -8,9 +8,12 @@
   "private": true,
   "scripts": {
     "lerna": "lerna",
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "web": "webpack-dev-server",
+    "dev:build": "./run.sh concurently:build",
+    "dev:watch": "./run.sh concurently:watch",
+    "dev:web": "./run.sh concurently:web",
+    "concurently:build": "webpack",
+    "concurently:watch": "webpack --watch",
+    "concurently:web": "webpack-dev-server",
     "concurently": "concurently"
   },
   "devDependencies": {

@@ -12,7 +12,6 @@ const packages = {
         externals: [],
         modules: {
             html: {},
-            css: {},
         },
     },
     [PackageNames.UI_SCENE]: {
@@ -20,6 +19,7 @@ const packages = {
         dir: `./packages/${PackageNames.UI_SCENE}`,
         modules: {
             html: {},
+            css: {},
         },
         externals: [],
     },
