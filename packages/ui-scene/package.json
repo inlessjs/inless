@@ -5,5 +5,12 @@
   "main": "dist/ui-scene.js",
   "author": "Vlad Sydorenko <vladv.sydorenko@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^16.0.3",
+    "react-dom": "^16.2.0"
+  }
 }
