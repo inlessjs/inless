@@ -17,8 +17,11 @@ const packages = {
     [PackageNames.UI_SCENE]: {
         name: PackageNames.UI_SCENE,
         dir: `./packages/${PackageNames.UI_SCENE}`,
+        entry: './src/index.tsx',
         modules: {
-            html: {},
+            html: {
+                template: `./packages/${PackageNames.UI_SCENE}/index.html`
+            },
             css: {},
         },
         externals: [],
