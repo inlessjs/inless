@@ -15,3 +15,5 @@ export interface IUIContainerRendererProps<T> {
 export interface IUIErrorRendererProps {
     message: string;
 }
+
+export interface IUIRendererMap { [key: string]: IUIRenderer<any>; }

@@ -2,12 +2,9 @@ import * as React from 'react';
 import {
     IUIRenderer,
     IUISceneRendererProps,
-    IUIErrorRendererProps
+    IUIErrorRendererProps,
+    IUIRendererMap,
 } from './interfaces';
-
-export interface IUIRendererMap { [key: string]: IUIRenderer<any>; }
-
-export interface IUIDefaultOptions { [key: string]: any; }
 
 export interface IUISceneProps {
     nodes: any[];
