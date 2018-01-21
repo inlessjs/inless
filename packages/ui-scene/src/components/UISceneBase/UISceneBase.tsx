@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {
     IUIRenderer,
-    IUISceneContainerRendererProps,
-    IUINodeContainerRendererProps,
-    IUINodeErrorRendererProps
+    IUISceneRendererProps,
+    IUIErrorRendererProps
 } from './interfaces';
 
 export interface IUIRendererMap { [key: string]: IUIRenderer<any>; }
+
+export interface IUIDefaultOptions { [key: string]: any; }
 
 export interface IUISceneProps {
     nodes: any[];
@@ -15,13 +16,8 @@ export interface IUISceneProps {
     getNodeRenderer: (node: any, renderers: IUIRendererMap) => IUIRenderer<any>;
     getNodeId: (node: any) => string;
 
-    SceneContainerRenderer: IUIRenderer<IUISceneContainerRendererProps>;
-    NodeContainerRenderer: IUIRenderer<IUINodeContainerRendererProps<any>>;
-    NodeErrorRenderer: IUIRenderer<IUINodeErrorRendererProps>;
-
-    sceneClassName?: string;
-    nodeContainerClassName?: string;
-    nodeErrorClassName?: string;
+    SceneContainerRenderer: IUIRenderer<IUISceneRendererProps>;
+    ErrorRenderer: IUIRenderer<IUIErrorRendererProps>;
 }
 
 export class UISceneBase extends React.PureComponent<IUISceneProps> {
@@ -29,14 +25,12 @@ export class UISceneBase extends React.PureComponent<IUISceneProps> {
         const {
             nodes,
             renderers,
+
             getNodeRenderer,
             getNodeId,
+
             SceneContainerRenderer,
-            NodeContainerRenderer,
-            NodeErrorRenderer,
-            sceneClassName,
-            nodeContainerClassName,
-            nodeErrorClassName,
+            ErrorRenderer,
         } = this.props;
 
         const nodeElements = nodes.map((node, index) => {
@@ -44,21 +38,15 @@ export class UISceneBase extends React.PureComponent<IUISceneProps> {
             const nodeId = getNodeId(node) || `index_${index}`;
 
             if (!Renderer) {
-                return <NodeErrorRenderer
+                return <ErrorRenderer
                     key={nodeId}
-                    className={nodeErrorClassName}
                     message={`Node renderer not found. Node id: ${nodeId}`}
                 />;
             }
 
-            return <NodeContainerRenderer
-                key={nodeId}
-                className={nodeContainerClassName}
-                node={node}
-                Renderer={Renderer}
-            />;
+            return <Renderer key={nodeId} node={node} />;
         });
 
-        return <SceneContainerRenderer className={sceneClassName} children={nodeElements} />;
+        return <SceneContainerRenderer children={nodeElements} />;
     }
 }

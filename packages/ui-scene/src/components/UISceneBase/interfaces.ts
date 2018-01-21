@@ -3,17 +3,15 @@ import { Component, StatelessComponent } from 'react';
 export declare type IUIFunctionalRenderer<T> = (new(...args: any[]) => Component<T>);
 export declare type IUIRenderer<T> = StatelessComponent<T> | IUIFunctionalRenderer<T>;
 
-export interface IUISceneContainerRendererProps {
-    className?: string;
+export interface IUISceneRendererProps {
+    children: any;
 }
 
-export interface IUINodeContainerRendererProps<T> {
-    className?: string;
+export interface IUIContainerRendererProps<T> {
     node: T;
     Renderer: IUIRenderer<{node: T, className?: string}>;
 }
 
-export interface IUINodeErrorRendererProps {
-    className?: string;
+export interface IUIErrorRendererProps {
     message: string;
 }
