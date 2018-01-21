@@ -16,7 +16,7 @@ export interface IUISceneProps {
     getNodeRenderer: (node: any, renderers: IUIRendererMap) => IUIRenderer<any>;
     getNodeId: (node: any) => string;
 
-    SceneContainerRenderer: IUIRenderer<IUISceneRendererProps>;
+    SceneRenderer: IUIRenderer<IUISceneRendererProps>;
     ErrorRenderer: IUIRenderer<IUIErrorRendererProps>;
 }
 
@@ -29,7 +29,7 @@ export class UISceneBase extends React.PureComponent<IUISceneProps> {
             getNodeRenderer,
             getNodeId,
 
-            SceneContainerRenderer,
+            SceneRenderer,
             ErrorRenderer,
         } = this.props;
 
@@ -47,6 +47,6 @@ export class UISceneBase extends React.PureComponent<IUISceneProps> {
             return <Renderer key={nodeId} node={node} />;
         });
 
-        return <SceneContainerRenderer children={nodeElements} />;
+        return <SceneRenderer children={nodeElements} />;
     }
 }
